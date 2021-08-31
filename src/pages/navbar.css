@@ -1,0 +1,19 @@
+.navigation-link {
+    font-family: 'SF Pro Rounded Medium', sans-serif !important;
+    color: #103250 !important;
+}
+
+.website-btn {
+    background-color: #EF27F7;
+    font-family: 'SF Pro Rounded Medium', sans-serif !important;
+    border-radius: 11px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1.27px;
+}
+.padding-left{
+    padding-left: 10vw;
+}
+.padding-right{
+    padding-right: 10vw;
+}

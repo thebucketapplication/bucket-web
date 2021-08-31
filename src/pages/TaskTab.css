@@ -1,0 +1,212 @@
+.rounded-nav .nav-link {
+    border-radius: 12px !important;
+    background-color: #fafafa !important;
+    color: #103250 !important;
+    font-family: 'SF Pro Rounded Semibold', sans-serif;
+    font-size: 17.5px;
+}
+
+.rounded-nav .nav-link.active {
+    background-color: #f2ffef !important;
+    color: #27c250 !important;
+}
+
+.btn-purple {
+    background-color: #ef27f7;
+    color: #e5e5e5;
+}
+
+/* .span-text {
+  color: #ef27f7
+} */
+
+.card.card-left {
+    border-left: 1px solid rgb(187, 184, 184) !important;
+}
+
+.small-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.icon-button {
+    font-size: 30px
+}
+
+.w-600 {
+    max-width: 600px;
+    font: normal normal 600 22px/26px;
+}
+
+.w-400 {
+    width: 400px;
+}
+
+.overflow-x {
+    overflow-x: scroll;
+    box-sizing: content-box;
+    /* white-space: nowrap; */
+}
+
+.webkit-box {
+    display: -webkit-box!important;
+}
+
+.overflow-y {
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.task-fullname {
+    letter-spacing: 0.65px;
+    color: #001737;
+    text-transform: capitalize;
+    font-family: 'SF Pro Rounded Semibold', sans-serif;
+    font-size: 26px;
+    margin-bottom: 0px;
+}
+
+.no-uppercase {
+    text-transform: none !important;
+}
+
+.task-username {
+    letter-spacing: 1.13px;
+    color: #232F3B40;
+    font-family: 'SF Pro Rounded Semibold', sans-serif;
+    font-size: 15px;
+}
+
+.task-date {
+    letter-spacing: 1.43px;
+    color: #CBCBCB;
+    text-transform: uppercase;
+    opacity: 1;
+    font-size: 19px;
+    font-family: 'SF Pro Rounded Semibold', sans-serif;
+    margin-bottom: 0px;
+    margin-top: 1vh;
+}
+
+.task-answer {
+    font-size: 26px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+.overlay-img {
+    display: inline-block;
+    position: relative;
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.overlay-img .roster-img {
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+}
+
+.roster-title {
+    font-family: "SF Pro Rounded Medium";
+    letter-spacing: 0px;
+    color: #103250;
+    text-align: left;
+}
+
+.roster-caption {
+    font-family: "SF Pro Rounded Medium";
+    color: #103250;
+    text-align: left;
+    width: 100%;
+}
+
+.color-red {
+    color: #EF27F7 !important;
+}
+
+.title-card {
+    padding: 30px 40px !important;
+    border-radius: 35px !important;
+    box-shadow: 0px 3px 10px #0000000D;
+    max-width: 500px;
+    width: 80vw;
+    list-style: none;
+    margin: 13px 0px;
+}
+
+.title-card .bucket-title {
+    color: #103250;
+    font-family: 'SF Pro Rounded Heavy', sans-serif;
+    text-align: left;
+    font-size: 30px;
+    margin-bottom: 0px !important;
+}
+
+@media(max-width:790px) {
+    .title-card .bucket-title {
+        font-size: 25px;
+    }
+}
+
+@media(max-width:450px) {
+    .rounded-nav .nav-link {
+        width: max-content;
+        padding: 10px 15px !important;
+    }
+    .overflow-y {
+        overflow-y: inherit;
+    }
+    .overlay-img {
+        width: 350px;
+        height: 350px;
+    }
+    .roster-title {
+        font-size: 22px;
+    }
+    .res-padding {
+        padding: 0px 10px !important;
+    }
+    .res-padding-0 {
+        padding: 0px 0px !important;
+    }
+    .task-fullname {
+        font-size: 18px;
+        font-family: 'SF Pro Rounded Bold', sans-serif;
+    }
+    .task-answer {
+        font-size: 18px;
+        font-family: 'Times New Roman', Times, serif;
+        font-style: italic;
+    }
+    .task-username {
+        font-size: 11px;
+        margin-bottom: 0px;
+        text-transform: uppercase;
+        font-family: 'SF Pro Rounded Bold', sans-serif;
+    }
+    .task-date {
+        font-family: 'SF Pro Rounded Bold', sans-serif;
+        font-size: 14px;
+    }
+    .roster-caption {
+        font-size: 24px;
+        font-weight: 400;
+        width: 80%;
+        padding-top: 15px !important;
+    }
+    .title-card {
+        max-width: 500px;
+        width: 80vw;
+        padding: 25px !important;
+        margin: 9px 0px;
+        border-radius: 15px !important;
+        box-shadow: 0px 4px 20px #00000017;
+    }
+    .title-card .bucket-title {
+        font-size: 22px;
+        margin-bottom: 0px;
+    }
+}
