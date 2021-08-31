@@ -3,14 +3,14 @@ import firebase from 'firebase'
 
 // Replace with your firebase config
 const config = {
-  apiKey: "AIzaSyC_LiHQ5U50TRkZGnAiMnRxLTIhaiOzo7E",
-  authDomain: "shopping-4621a.firebaseapp.com",
-  databaseURL: "https://shopping-4621a.firebaseio.com",
-  projectId: "shopping-4621a",
-  storageBucket: "shopping-4621a.appspot.com",
-  messagingSenderId: "40739878103",
-  appId: "1:40739878103:web:4628ab8cd622196a182c92",
-  measurementId: "G-QQWBDFT1VY"
-}
+  apiKey: "AIzaSyDIRb3pxJh-6jBftbe2A_9SQc14pKnRwYY",
+  authDomain: "bucket-96863.firebaseapp.com",
+  databaseURL: "https://bucket-96863.firebaseio.com",
+  projectId: "bucket-96863",
+  storageBucket: "bucket-96863.appspot.com",
+  messagingSenderId: "756829510717",
+  appId: "1:756829510717:web:882cf06138d38a78b15e54",
+  measurementId: "G-JYRF2YRFSW"
+};
 firebase.initializeApp(config)
 export default firebase
