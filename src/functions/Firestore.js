@@ -1,5 +1,4 @@
 import firebase from 'firebase'
-import { getAnalytics } from "firebase/analytics";
 
 // Replace with your firebase config
 const config = {
@@ -12,7 +11,9 @@ const config = {
   appId: "1:756829510717:web:882cf06138d38a78b15e54",
   measurementId: "G-JYRF2YRFSW"
 };
-const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app);
+
+firebase.initializeApp(config)
+firebase.analytics()
+
 
 export default firebase
