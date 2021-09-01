@@ -13,4 +13,5 @@ const config = {
   measurementId: "G-JYRF2YRFSW"
 };
 firebase.initializeApp(config)
+firebase.analytics()
 export default firebase
