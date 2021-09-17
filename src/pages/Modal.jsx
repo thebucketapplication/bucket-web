@@ -6,7 +6,7 @@ var QRCode = require('qrcode.react')
 const baseURL = 'https://apps.apple.com/us/app/bucket-a-bucket-list-app/id1509377504'
 
 class Modal extends Component {
-  render () {
+  render() {
     return this.props.user ? (
       <>
         <div
@@ -46,7 +46,7 @@ class Modal extends Component {
                 <p className='w-100 text-center'>or
                   <span>
                     <a className="link" href="https://apps.apple.com/us/app/bucket-a-bucket-list-app/id1509377504">Click Here</a>
-                    </span></p>
+                  </span></p>
               </div>
             </div>
           </div>

@@ -4,27 +4,26 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import { userList } from '../redux/actions/userActions'
 
 class UserList extends Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.userList()
   }
-  render () {
-    return this.props.list ? (
+  render() {
+    return this.props.list ? (<>
+      <div style={{padding: '5px 10px'}}>Users who just joined Bucket!</div>
       <table className='table'>
-        {this.props.list.map((el, index) => (
-          <tr>
-            <td>
-              <Link key={index} to={`/${el.username}`}>
-                {el.fullname}
-              </Link>
-            </td>
-            {/* <td>
-              <Link key={index} to={`/form/${el.id}`}>
-                Edit
-              </Link>
-            </td> */}
-          </tr>
-        ))}
+        <tbody>
+          {this.props.list.map((el, index) => (
+            <tr key={index}>
+              <td>
+                <Link to={`/${el.username}`}>
+                  {el.fullname}
+                </Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
+    </>
     ) : (
       <h1>Loading</h1>
     )

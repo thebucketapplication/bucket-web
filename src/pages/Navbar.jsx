@@ -33,9 +33,6 @@ class Navbar extends Component {
                   </a>
                 </li>
                 <li className='nav-item mx-2'>
-                  {/* <Link className='nav-link' to='/follow'>
-                    Follow Us
-                  </Link> */}
                 </li>
 
                 <li className='nav-item mx-1'>

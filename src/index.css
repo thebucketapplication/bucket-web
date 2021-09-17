@@ -1,47 +1,50 @@
 @font-face {
   font-family: 'SF Pro Rounded Bold';
-  src: local('SF-Pro-Rounded-Bold'),
-  url('/src/assets/SF-Pro-Rounded-Bold.otf') format('opentype');
+  src: local('SF-Pro-Rounded-Bold'), url('/src/assets/SF-Pro-Rounded-Bold.otf') format('opentype');
 }
+
 @font-face {
   font-family: 'SF Pro Rounded Heavy';
-  src: local('SF-Pro-Rounded-Heavy'),
-  url('/src/assets/SF-Pro-Rounded-Heavy.otf') format('opentype');
+  src: local('SF-Pro-Rounded-Heavy'), url('/src/assets/SF-Pro-Rounded-Heavy.otf') format('opentype');
 }
+
 @font-face {
   font-family: 'SF Pro Rounded Medium';
-  src: local('SF-Pro-Rounded-Medium'),
-  url('/src/assets/SF-Pro-Rounded-Medium.otf') format('opentype');
+  src: local('SF-Pro-Rounded-Medium'), url('/src/assets/SF-Pro-Rounded-Medium.otf') format('opentype');
 }
+
 @font-face {
   font-family: 'SF Pro Rounded Semibold';
-  src: local('SF-Pro-Rounded-Semibold'),
-  url('/src/assets/SF-Pro-Rounded-Semibold.otf') format('opentype');
+  src: local('SF-Pro-Rounded-Semibold'), url('/src/assets/SF-Pro-Rounded-Semibold.otf') format('opentype');
 }
+
 body {
   margin: 0;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif; */
-    font-family: 'SF Pro Rounded Medium', sans-serif;
+  font-family: 'SF Pro Rounded Medium', sans-serif;
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
 }
-.justify-content{
-  display:flex;
+
+.justify-content {
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
-@media(max-width:420px){
-  .no-margin{
-    margin-left:0px !important;
-    margin-right:0px !important;
+
+@media(max-width:768px) {
+  .no-margin {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
   }
-  .no-padding{
-    padding-left:0px !important;
+  .no-padding {
+    padding-left: 0px !important;
     padding-right: 0px !important;
   }
 }
+
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

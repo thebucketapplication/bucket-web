@@ -8,6 +8,8 @@ export const addTask = body => async dispatch => {
   })
 }
 
+const pageSize = 20;
+
 export const getTasks = (id, lastVisit, completed) => async dispatch => {
   let db = firebase.firestore();
   if (!lastVisit) {
@@ -17,14 +19,14 @@ export const getTasks = (id, lastVisit, completed) => async dispatch => {
       .where('isPrivate', '==', false)
       .where('completed', '==', completed || false)
       .orderBy('createdTimeStamp', 'desc')
-      .limit(20)
+      .limit(pageSize)
       .get();
     let res1 = [];
     res.forEach(doc => {
       res1.push(doc.data());
     });
     res1 = [...res1];
-    const hasMore = res1.length === 20;
+    const hasMore = res1.length === pageSize;
     return dispatch({
       type: completed ? 'TASK_LIST_COMPLETE' : 'TASK_LIST_TODO',
       payload: res1,
@@ -39,14 +41,14 @@ export const getTasks = (id, lastVisit, completed) => async dispatch => {
       .where('completed', '==', completed || false)
       .orderBy('createdTimeStamp', 'desc')
       .startAfter(lastVisit)
-      .limit(20)
+      .limit(pageSize)
       .get();
     let res1 = [];
     res.forEach(doc => {
       res1.push(doc.data());
     });
     res1 = [...res1];
-    const hasMore = res1.length === 20;
+    const hasMore = res1.length === pageSize;
     return dispatch({
       type: completed ? 'TASK_MORE_LIST_COMPLETE' : 'TASK_MORE_LIST_TODO',
       payload: res1,

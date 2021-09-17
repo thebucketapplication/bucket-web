@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getTasks } from '../redux/actions/taskActions'
 import './TaskTab.css'
 import ReactPlayer from 'react-player'
+// import _ from 'lodash';
 // import { BsCursor, BsThreeDots } from "react-icons/bs";
 import FlatList from 'flatlist-react';
 
@@ -20,19 +21,18 @@ class TaskTabs extends Component {
   }
   // componentDidUpdate(prevProps, prevState) {
   //   if (_.isEqual(prevProps, this.props) === false) {
+  //     console.log(this.props.userId);
   //     this.props.getTasks(this.props.userId, null, true);
   //     this.props.getTasks(this.props.userId, null, false);
   //   }
   // }
 
   fetchCompletedData() {
-    console.log("Fetch Completed More");
-    this.props.getTasks(this.props.userId, this.props.lastVisit, true);
+    this.props.getTasks(this.props.userId, this.props.completed_last_visit, true);
   }
 
   fetchTodoData() {
-    console.log("Fetch Todo More");
-    this.props.getTasks(this.props.userId, this.props.lastVisit, false);
+    this.props.getTasks(this.props.userId, this.props.todo_last_visit, false);
   }
   CheckTime(t) {
     var dateNow = Math.floor((new Date().getTime() / 1000));
@@ -80,28 +80,10 @@ class TaskTabs extends Component {
     }
   }
   CompletedBucketImage(el) {
-    console.log(el)
     if ((el.completed === true) && (!el.storybookDictionary || el.storybookDictionary.length === 0)) {
       return (
         <React.Fragment>
-          <div className="webkit-box bd-highlight overflow-x">
-            <div className="p-4 bd-highlight w-400 res-padding-0">
-              <img alt='' src={el.completedBucketImageURL} width="350px" height="350px" />
-              <h4 className="pt-2 roster-caption">{el.caption}</h4>
-            </div>
-          </div>
-          <div className="title-card">
-                <h4 className="bucket-title">
-                  {el.bucketTitle}
-                </h4>
-              </div>
-        </React.Fragment>
-      )
-    }
-    else {
-      return (
-        <React.Fragment>
-          <div className="row w-600 p-4">
+          <div className="row px-3">
             <div className="col-auto small-avatar" style={{ paddingLeft: "0px", paddingRight: "0px" }}>
               <img alt='' src={el.profileImageURL} />
             </div>
@@ -112,22 +94,45 @@ class TaskTabs extends Component {
             <div className="col">
               {this.CheckTime(el.createdTimeStamp)}
             </div>
-            {/* <div className="col-1 order-last">
-              <BsCursor className="icon-button" />
+          </div>
+          <div className="webkit-box bd-highlight overflow-x">
+            <div className="p-2 bd-highlight w-350">
+              <img alt='' src={el.completedBucketImageURL} width="320px" height="320px" />
+              <h4 className="pt-2 roster-caption">{el.caption}</h4>
             </div>
-            <div className="col-1 order-last">
-              <BsThreeDots className="icon-button" />
-            </div> */}
+          </div>
+          <div className="title-card">
+            <h4 className="bucket-title">
+              {el.bucketTitle}
+            </h4>
+          </div>
+        </React.Fragment>
+      )
+    }
+    else {
+      return (
+        <React.Fragment>
+          <div className="row px-3">
+            <div className="col-auto small-avatar" style={{ paddingLeft: "0px", paddingRight: "0px" }}>
+              <img alt='' src={el.profileImageURL} />
+            </div>
+            <div className="col-auto">
+              <h5 className="task-fullname">{el.fullname}</h5>
+              <p className='task-username'>@{el.username}</p>
+            </div>
+            <div className="col">
+              {this.CheckTime(el.createdTimeStamp)}
+            </div>
           </div>
           <React.Fragment>
             <div className="webkit-box bd-highlight overflow-x">
               {el.storybookDictionary
                 ? el.storybookDictionary.sort((x, y) => x.index - y.index).map((sb, index1) => (
-                  <div className="p-4 bd-highlight w-400 res-padding-0" key={'storybook' + index1} >
+                  <div className="p-2 bd-highlight w-350 res-padding-0" key={'storybook' + index1} >
                     {
                       sb.isText ? <h4 className="roster-title">{sb.caption}</h4> :
                         sb.isMedia ? <React.Fragment>
-                          <img alt='' src={sb.imageURL} width="350px" height="350px" />
+                          <img alt='' src={sb.imageURL} width="320px" height="320px" />
                           {/* <div className="overlay-img">
                             <img alt='' src={sb.imageURL} className="roster-img" />
                           </div> */}
@@ -135,21 +140,19 @@ class TaskTabs extends Component {
 
                         </React.Fragment> :
                           sb.isVideo ? <div>
-                            <ReactPlayer url={el.videoURL} controls={true} width="350px" height="350px" />
+                            <ReactPlayer url={el.videoURL} controls={true} width="320px" height="320px" />
                             <h4 className="pt-2 roster-caption">{sb.caption}</h4>
                           </div> :
                             sb.isRoster ? <>
                               {
                                 sb.rosterDictionary ?
                                   sb.rosterDictionary.map((rd, index2) => (
-                                    <div className="row" key={'robster' + index2} style={{marginLeft:"0px", marginRight:"0px"}}>
-                                      <div className="col-auto small-avatar" style={{ paddingLeft: "0px", paddingRight: "0px" }}>
+                                    <div className="row" key={'robster' + index2} style={{ margin: "5px", marginRight: "0px" }}>
+                                      <div className="col-auto roster-avatar" style={{ paddingLeft: "0px", paddingRight: "0px" }}>
                                         <img alt='' src={rd.profileImageURL} />
                                       </div>
                                       <div className="col-auto">
-                                        {/* <h5 className="task-fullname">{rd.fullname}</h5>
-                                        <p className='task-username color-red'>@{rd.username}</p> */}
-                                        <h5 className="task-fullname no-uppercase color-red">@{rd.username}</h5>
+                                        <div className="roster-fullname no-uppercase">@{rd.username}</div>
                                       </div>
                                     </div>
                                   )) : null
@@ -177,7 +180,7 @@ class TaskTabs extends Component {
 
   renderCompletedTasks = (el, index) => {
     return (
-      <li key={'completed' + index} className="card">
+      <li key={'completed' + index} className="card pt-0 pb-2">
         {this.CompletedBucketImage(el)}
       </li>
     );
@@ -187,8 +190,6 @@ class TaskTabs extends Component {
     return (
       <li key={'todo' + index} className='bucket-card'>
         <h4 className="card-title">{el.bucketTitle}</h4>
-        {/* <b>ADDED BY <span className='span-text'>{el.username}</span></b> */}
-        {/* <h5 className="added-by">ADDED BY <span className='people-count'>{el.username}</span></h5> */}
       </li>
     )
   }
@@ -196,11 +197,11 @@ class TaskTabs extends Component {
   render() {
 
     return (
-      <div className='card card-left'>
+      <div className='card card-border'>
         <ul
           id='myTab'
           role='tablist'
-          className='nav nav-tabs nav-pills flex-row flex-sm-row text-center border-0 rounded-nav'
+          className='nav nav-tabs nav-pills flex-row flex-sm-row text-center border-0 rounded-nav mb-4'
         >
           <li
             className='nav-item flex-sm-fill'
@@ -212,12 +213,12 @@ class TaskTabs extends Component {
               role='tab'
               aria-controls='home'
               aria-selected='true'
-              className={`nav-link border-0  px-5 mx-2 py-3 ${this.state.active === 0 ? 'active' : null
+              className={`nav-link border-0  px-5 mx-2 py-3 tab-width ${this.state.active === 0 ? 'active' : null
                 }`}
             >
               to do
               (
-              {this.props.todo_tasks
+              {this.props.bucketListCount
                 ? this.props.bucketListCount
                 : '0'}
               )
@@ -233,53 +234,52 @@ class TaskTabs extends Component {
               role='tab'
               aria-controls='profile'
               aria-selected='false'
-              className={`nav-link border-0 px-5 mx-2 py-3 ${this.state.active === 1 ? 'active' : null
+              className={`nav-link border-0 px-5 mx-2 py-3 tab-width ${this.state.active === 1 ? 'active' : null
                 }`}
             >
               completed
               (
-              {this.props.completed_tasks
+              {this.props.completedListCount
                 ? this.props.completedListCount
                 : '0'}
               )
             </div>
           </li>
         </ul>
-        <div id='myTabContent' className='tab-content py-4'>
-          <div
-            id='home'
-            role='tabpanel'
-            aria-labelledby='home-tab'
-            className={`tab-pane fade ${this.state.active === 0 ? 'show active' : null
-              }`}
-          >
-            <ul className='list-group list-group-flush overflow-y pl-4 res-padding'>
-              <FlatList
-                list={this.props.todo_tasks || []}
-                renderItem={this.renderTodoTasks}
-                renderWhenEmpty={() => <div>No Buckets</div>}
-                loadMoreItems={() => this.fetchTodoData()}
-                hasMoreItems={this.props.todo_has_more}
-              />
-            </ul>
-          </div>
-          <div
-            id='profile'
-            role='tabpanel'
-            aria-labelledby='profile-tab'
-            className={`tab-pane fade ${this.state.active === 1 ? 'show active' : null
-              }`}
-          >
-            <ul className='list-group list-group-flush overflow-y pl-4 res-padding'>
-              <FlatList
-                list={this.props.completed_tasks || []}
-                renderItem={this.renderCompletedTasks}
-                renderWhenEmpty={() => <div>No Buckets</div>}
-                loadMoreItems={() => this.fetchCompletedData()}
-                hasMoreItems={this.props.completed_has_more}
-              />
-            </ul>
-          </div>
+        <div id='myTabContent' className='tab-content'>
+          {
+            this.state.active === 0 ?
+              <div
+                id='home'
+                role='tabpanel'
+                aria-labelledby='home-tab'
+              >
+                <ul className='list-group list-group-flush overflow-y res-padding'>
+                  <FlatList
+                    list={this.props.todo_tasks || []}
+                    renderItem={this.renderTodoTasks}
+                    renderWhenEmpty={() => <div>No Buckets</div>}
+                    loadMoreItems={() => this.fetchTodoData()}
+                    hasMoreItems={this.props.todo_has_more}
+                  />
+                </ul>
+              </div> :
+              <div
+                id='profile'
+                role='tabpanel'
+                aria-labelledby='profile-tab'
+              >
+                <ul className='list-group list-group-flush overflow-y pl-4 res-padding'>
+                  <FlatList
+                    list={this.props.completed_tasks || []}
+                    renderItem={this.renderCompletedTasks}
+                    renderWhenEmpty={() => <div>No Buckets</div>}
+                    loadMoreItems={() => this.fetchCompletedData()}
+                    hasMoreItems={this.props.completed_has_more}
+                  />
+                </ul>
+              </div>
+          }
         </div>
       </div>
     )
@@ -292,7 +292,8 @@ const mapStateToProps = storeState => {
     todo_tasks: storeState.taskState.todo_tasks,
     completed_has_more: storeState.taskState.completed_has_more,
     todo_has_more: storeState.taskState.todo_has_more,
-    lastVisit: storeState.taskState.lastVisit,
+    completed_last_visit: storeState.taskState.completed_last_visit,
+    todo_last_visit: storeState.taskState.todo_last_visit,
     bucketListCount: storeState.listState.single.BucketListCount,
     completedListCount: storeState.listState.single.CompletedBucketListCount,
   }
