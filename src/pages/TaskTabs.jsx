@@ -19,13 +19,6 @@ class TaskTabs extends Component {
     this.props.getTasks(this.props.userId, null, true);
     this.props.getTasks(this.props.userId, null, false);
   }
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (_.isEqual(prevProps, this.props) === false) {
-  //     console.log(this.props.userId);
-  //     this.props.getTasks(this.props.userId, null, true);
-  //     this.props.getTasks(this.props.userId, null, false);
-  //   }
-  // }
 
   fetchCompletedData() {
     this.props.getTasks(this.props.userId, this.props.completed_last_visit, true);
@@ -34,6 +27,7 @@ class TaskTabs extends Component {
   fetchTodoData() {
     this.props.getTasks(this.props.userId, this.props.todo_last_visit, false);
   }
+
   CheckTime(t) {
     var dateNow = Math.floor((new Date().getTime() / 1000));
     var seconds = Math.floor(dateNow - t);
@@ -195,7 +189,6 @@ class TaskTabs extends Component {
   }
 
   render() {
-
     return (
       <div className='card card-border'>
         <ul

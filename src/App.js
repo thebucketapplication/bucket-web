@@ -3,6 +3,7 @@ import Navbar from './pages/Navbar'
 import TaskAdd from './pages/TaskAdd'
 import UserChange from './pages/UserChange'
 import UserDetails from './pages/UserDetails'
+import CollectionDetails from './pages/CollectionDetails'
 import UserForm from './pages/UserForm'
 import UserList from './pages/UserList'
 function App () {
@@ -16,6 +17,7 @@ function App () {
           <Route exact path='/form/:id' component={UserChange} />
           <Route exact path='/task/form' component={TaskAdd} />
           <Route exact path='/:username' component={UserDetails} />
+          <Route exact path='/c/:id' component={CollectionDetails}/>
         </Switch>
       </BrowserRouter>
     </>
